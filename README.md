@@ -23,3 +23,27 @@ Binary search reduces the search space by half in each step, making it extremely
 Space Complexity: O(1)
 
 The solution uses a constant amount of extra space, regardless of the input size, as it only requires a few pointers to perform the search.
+
+
+268. Missing Number
+
+Problem Overview:
+The task is to find a single missing number from an array of n distinct numbers. The numbers are guaranteed to be in the range [0,n]. The array's length is also n.
+
+Solution Approach:
+The most optimal solution utilizes the Cyclic Sort algorithm. This technique is ideal for problems involving arrays with a limited range of numbers. The core idea is to place each element at its correct sorted position. For this problem, a number k should ideally be at index k.
+
+The algorithm proceeds in two main steps:
+
+Placement: We iterate through the array. For each number nums[i], we check if it is at its correct index. If nums[i] is less than the array length and is not in its correct position (nums[i] != nums[nums[i]]), we swap it with the element at its correct index. This process continues until all numbers are in their correct positions. The number n (if present) will remain at an incorrect index because its correct index is outside the array's bounds.
+
+Identification: After the first step, we iterate through the array one more time. The first index i where nums[i] is not equal to i is the missing number. This is because every other number has been placed in its correct spot. If all numbers from 0 to n−1 are in their correct places, the missing number must be n.
+
+Complexity:
+Time Complexity: O(n)
+
+The cyclic sort part of the algorithm makes at most n swaps in the worst-case scenario. Each number is visited and swapped into its correct place at most once, and the final search is a single pass, resulting in a linear time complexity.
+
+Space Complexity: O(1)
+
+The solution is performed in-place on the input array and does not require any additional data structures, thus using constant extra space.
