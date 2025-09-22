@@ -47,3 +47,27 @@ The cyclic sort part of the algorithm makes at most n swaps in the worst-case sc
 Space Complexity: O(1)
 
 The solution is performed in-place on the input array and does not require any additional data structures, thus using constant extra space.
+
+
+448. Find All Numbers Disappeared in an Array
+     
+Problem Overview:
+This problem asks us to identify all numbers that are missing from an array of n integers. The numbers are guaranteed to be within the range [1,n]. Unlike some similar problems, this one allows for duplicate numbers in the input.
+
+Solution Approach:
+The solution uses the Cyclic Sort pattern, an efficient technique for sorting arrays containing numbers within a specific range. The central idea is to place each number at its correct, corresponding index. Since the numbers are in the range [1,n], the number x should ideally be located at index x−1.
+
+The algorithm works in two passes:
+
+Placement Pass: We iterate through the array. For each element nums[i], we determine its correct index, which is nums[i] - 1. If the element is not already at its correct position, we swap it with the element that should be at that position. This process continues until all numbers are cyclically sorted into their respective indices.
+
+Identification Pass: Once the array is sorted, we perform a second pass. We check each index i. If nums[i] is not equal to i + 1, it means the number i + 1 is missing from the array. We add i + 1 to our result list.
+
+Complexity:
+Time Complexity: O(n)
+
+The cyclic sort algorithm ensures each number is placed correctly with at most a single swap, making the first pass a linear time operation. The second pass to find the missing numbers also takes linear time.
+
+Space Complexity: O(1)
+
+The solution is performed in-place without using any auxiliary data structures proportional to the input size. We do not count the returned list as extra space, as specified by the problem's follow-up.
