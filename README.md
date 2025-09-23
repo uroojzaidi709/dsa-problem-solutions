@@ -138,3 +138,32 @@ The solution performs an in-place sort, using no auxiliary data structures.
 
 Note on Constraints:
 It's important to note that this solution modifies the input array. While this approach is highly efficient, it does not adhere to the problem's strict constraint of solving it without modifying the array. An alternative solution that meets all constraints is Floyd's Tortoise and Hare (Cycle Detection).
+
+
+442. Find All Duplicates in an Array
+     
+Problem Overview:
+
+This problem asks us to find all numbers that appear twice in an integer array nums of length n. All numbers in the array are guaranteed to be within the range [1, n], and each number appears either once or twice. The solution must run in O(n) time and use only O(1) auxiliary space.
+
+Solution Approach:
+
+The solution uses the Cyclic Sort pattern, which is an excellent technique for solving array problems where elements are within a specific range. The central idea is to place each number at its correct, corresponding index. For an array containing numbers from 1 to n, the number x should ideally be at index x-1.
+
+The algorithm works in two distinct phases:
+
+Placement Pass: We iterate through the array with a while loop. For each element nums[i], we calculate its correct index, correct = nums[i] - 1. If nums[i] is not already in its correct position (i.e., nums[i] != nums[correct]), we swap nums[i] with the element at the correct index. This process continues until nums[i] is in its correct place.
+
+Identification Pass: After the first pass, the array is almost sorted. We then perform a second pass with a for loop. We iterate through each index index from 0 to n-1. If we find a number nums[index] that does not match the expected value of index + 1, it means that nums[index] is a duplicate. We add this number to our result list. The missing number that index + 1 should represent has been replaced by the duplicate.
+
+This in-place modification allows us to meet the time and space complexity requirements of the problem.
+
+Complexity:
+
+Time Complexity: O(n)
+
+The first pass takes linear time. Although it contains a while loop, each element is moved to its correct position at most once. The second pass is a simple linear scan.
+
+Space Complexity: O(1)
+
+The solution operates in-place without using any auxiliary data structures. The space required for the output list is not counted toward the auxiliary space.
