@@ -115,3 +115,25 @@ Complexity:
 Time Complexity: O(log n) - Both the pivot search and the subsequent binary search are logarithmic.
 
 Space Complexity: O(1) - The solution is in-place and doesn't use extra space.
+
+287. Find the Duplicate Number
+     
+Problem Overview:
+This problem asks us to find the single repeated number in an array of n + 1 integers, where each integer is in the range [1, n].
+
+Solution Approach (Cyclic Sort):
+
+The solution uses the Cyclic Sort pattern to find the duplicate. The core idea is to place each number at its correct, corresponding index. For an array containing numbers from 1 to n, the number x belongs at index x-1.
+
+The algorithm iterates through the array, performing swaps to place each number in its correct position. The duplicate is found when we encounter a number nums[i] that is already in its correct location (nums[i] == nums[correct]), but it's not the correct number for the current index (nums[i] != i+1). This indicates that nums[i] is the duplicate value.
+
+Complexity:
+
+Time Complexity: O(n)
+The algorithm makes a single pass through the array. Although swaps are involved, each element is placed in its correct position at most once, resulting in a linear time complexity.
+
+Space Complexity: O(1)
+The solution performs an in-place sort, using no auxiliary data structures.
+
+Note on Constraints:
+It's important to note that this solution modifies the input array. While this approach is highly efficient, it does not adhere to the problem's strict constraint of solving it without modifying the array. An alternative solution that meets all constraints is Floyd's Tortoise and Hare (Cycle Detection).
