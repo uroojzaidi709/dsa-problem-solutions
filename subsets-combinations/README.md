@@ -1,4 +1,4 @@
-# Letter Combinations of a Phone Number
+# 17. Letter Combinations of a Phone Number
 
 ## Problem Overview:
 Given a string of digits from 2-9, the task is to generate all possible letter combinations that can be represented by the digits, based on a standard phone keypad mapping.
