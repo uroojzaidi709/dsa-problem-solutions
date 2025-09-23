@@ -107,3 +107,34 @@ O(9^(n*n)) where n is the size of the board (9x9). In the worst-case scenario, e
 
 ### Space Complexity: O(n*n)
 The space is primarily used by the recursion stack. The maximum depth of the recursion is the number of empty cells, which in the worst-case can be up to 81.
+
+
+# 36. Valid Sudoku
+
+## Problem Overview:
+This problem asks us to validate a partially filled Sudoku board. A board is considered valid if all filled cells adhere to three rules: no duplicate digits (1-9) in any row, any column, or any of the nine 3x3 sub-boxes.
+
+## Solution Approach:
+The provided solution uses a straightforward, brute-force approach by checking each filled cell against the Sudoku rules. The logic is encapsulated in a main loop that iterates through the entire board and a helper function isSafe() that performs the validation checks.
+
+### Iterate and Check: 
+The main loop iterates through every cell of the board. When a filled cell (a digit, not a '.') is encountered, its number is temporarily removed from the board.
+
+### Safety Validation: 
+The isSafe() helper function is then called to check if this number already exists in the same row, column, or 3x3 sub-box.
+
+### Return false: 
+If isSafe() returns false, it means a duplicate was found, and the board is invalid. The function immediately returns false.
+
+### Restore and Continue: 
+If no duplicates are found, the number is placed back in its original cell, and the loop continues to the next cell. If all filled cells are checked without finding any duplicates, the board is valid, and the function returns true.
+
+This method, while simple, guarantees all filled cells are checked for validity.
+
+## Complexity:
+
+### Time Complexity: O(n²)
+The solution iterates through each cell of the nxn board (where n is 9). For each filled cell, it performs checks on its row, column, and sub-box, which are all linear operations. This results in a total time complexity proportional to n², or O(81), which is effectively O(1) in a fixed-size board context.
+
+### Space Complexity: O(1)
+The solution uses a constant amount of extra space and does not use any additional data structures that scale with the input size.
