@@ -52,13 +52,17 @@ This problem is a variation of the N-Queens puzzle. Instead of returning all dis
 
 The solution uses the same backtracking core as the N-Queens problem. The main difference lies in how the base case is handled and how results are aggregated.
 
-### Recursive Function (countQueens): A recursive function is used to explore all possible placements. Instead of building a list of board configurations, it returns an integer count.
+### Recursive Function (countQueens): 
+A recursive function is used to explore all possible placements. Instead of building a list of board configurations, it returns an integer count.
 
-### Base Case: When a queen has been successfully placed in the final row (row == board.length), it signifies a complete and valid solution. Instead of adding a board to a list, the function returns 1, which represents a single, valid solution found.
+### Base Case: 
+When a queen has been successfully placed in the final row (row == board.length), it signifies a complete and valid solution. Instead of adding a board to a list, the function returns 1, which represents a single, valid solution found.
 
-### Recursive Step & Aggregation: The function iterates through each column in the current row. If a position is safe, it places a queen, recursively calls itself for the next row, and adds the returned count to a running total. After the recursive call, it backtracks by removing the queen to explore other possibilities.
+### Recursive Step & Aggregation: 
+The function iterates through each column in the current row. If a position is safe, it places a queen, recursively calls itself for the next row, and adds the returned count to a running total. After the recursive call, it backtracks by removing the queen to explore other possibilities.
 
-### Final Count: The initial call to the recursive function returns the sum of all valid solutions found, providing the final answer.
+### Final Count: 
+The initial call to the recursive function returns the sum of all valid solutions found, providing the final answer.
 
 This approach is highly efficient for counting solutions, as it avoids the overhead of generating and storing the board configurations for each valid solution.
 
