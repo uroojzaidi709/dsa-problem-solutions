@@ -167,3 +167,30 @@ The first pass takes linear time. Although it contains a while loop, each elemen
 Space Complexity: O(1)
 
 The solution operates in-place without using any auxiliary data structures. The space required for the output list is not counted toward the auxiliary space.
+
+
+41. First Missing Positive
+    
+Problem Overview:
+
+This problem requires finding the smallest missing positive integer in an unsorted array. The solution must be highly efficient, running in O(n) time with O(1) auxiliary space.
+
+Solution Approach (Cyclic Sort):
+
+This solution utilizes the Cyclic Sort pattern, which is ideal for in-place sorting of arrays with numbers in a given range. The goal is to place each number x at its correct index, x-1. Since we only care about positive integers up to n, we ignore any numbers that are out of this range (e.g., negatives, zeros, or numbers greater than n).
+
+The algorithm works in two phases:
+
+Placement Pass:
+We iterate through the array, swapping each relevant number (> 0 and ≤ n) into its correct position. After this phase, if a number from 1 to n exists in the array, it will be at its corresponding index.
+
+Identification Pass: 
+We perform a second pass, checking each index i. If the number at nums[i] is not equal to i + 1, then i + 1 is the smallest missing positive integer. If the loop completes without finding any mismatch, it means all numbers from 1 to n are present, so the answer is n + 1.
+
+Complexity:
+
+Time Complexity: O(n)
+Both passes through the array are linear. The swaps in the first pass ensure each element is considered and moved at most once to its correct position.
+
+Space Complexity: O(1)
+The solution is performed in-place, using constant extra space.
