@@ -8,7 +8,9 @@ This problem requires us to find the number of steps to reduce a non-negative in
 
 The provided solution uses a **recursive** approach to solve the problem. A **helper function helper(num, steps)** is used to track the number and the steps taken.
 
-### Base Case: The recursion terminates when num is equal to 0. At this point, the accumulated steps are returned, providing the final count.
+### Base Case:
+
+The recursion terminates when num is equal to 0. At this point, the accumulated steps are returned, providing the final count.
 
 ### Recursive Step: 
 
