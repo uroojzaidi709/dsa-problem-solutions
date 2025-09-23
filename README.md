@@ -96,3 +96,22 @@ The cyclic sort algorithm ensures that each number is placed correctly. Although
 
 Space Complexity: O(1)
 The solution is performed in-place and does not use any auxiliary data structures that scale with the input size. Therefore, the space complexity is constant.
+
+
+33. Search in Rotated Sorted Array
+    
+Problem Overview:
+Find a target in a sorted array that's been rotated at an unknown pivot. The solution must have an O(log n) time complexity.
+
+Solution Approach:
+This problem is solved by applying binary search in two phases. First, we find the pivot, which is the largest element and the point of rotation. Then, we perform a standard binary search on one of the two sorted subarrays created by the rotation.
+
+Find the Pivot: A modified binary search locates the pivot by checking if an element is larger than its next neighbor or smaller than its previous neighbor.
+
+Binary Search: Once the pivot is found, we determine which subarray ([start, pivot-1] or [pivot+1, end]) contains the target by comparing the target with the array's first element. A standard binary search is then performed on the correct subarray.
+
+Complexity:
+
+Time Complexity: O(log n) - Both the pivot search and the subsequent binary search are logarithmic.
+
+Space Complexity: O(1) - The solution is in-place and doesn't use extra space.
