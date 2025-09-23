@@ -73,3 +73,37 @@ Similar to the original N-Queens problem, the algorithm explores all permutation
 
 ### Space Complexity: O(n²)
 The space is primarily used for the recursion stack and the boolean board.
+
+
+# 37. Sudoku Solver
+    
+## Problem Overview:
+This problem requires us to solve a classic Sudoku puzzle by filling in the empty cells (.). A valid solution must ensure that each digit from 1-9 appears exactly once in each row, each column, and each of the nine 3x3 sub-boxes.
+
+## Solution Approach (Backtracking):
+This is a quintessential **backtracking problem**. The strategy is to find an empty cell, try a valid number in it, and then recursively attempt to solve the rest of the board. If the path leads to a dead end, we backtrack and try a different number in the current cell.
+
+### Recursive Function (solve): 
+The main logic resides in a recursive function that iterates through the board.
+
+### Base Case: 
+The recursion stops and returns true when all cells have been filled, indicating that a valid solution has been found.
+
+### Recursive Step: 
+The algorithm iterates through each cell of the board. If an empty cell (.) is found, it attempts to place a number from '1' to '9'.
+
+### Safety Check (isSafe): 
+Before placing a number, a helper function isSafe() verifies that the number does not already exist in the same row, column, or 3x3 sub-grid.
+
+### Placement and Backtracking: 
+If a number is safe to place, it is inserted into the cell. A recursive call is then made to solve the rest of the puzzle. If the recursive call returns true (meaning a solution was found), the function returns true. If not, it means the current number choice was incorrect, and we backtrack by resetting the cell to . and trying the next number.
+
+This systematic trial-and-error process, combined with backtracking, guarantees that the single, valid solution will be found.
+
+## Complexity:
+
+### Time Complexity: 
+O(9^(n*n)) where n is the size of the board (9x9). In the worst-case scenario, each empty cell could have up to 9 possible numbers to try. However, pruning via the isSafe checks makes the average performance much better in practice.
+
+### Space Complexity: O(n*n)
+The space is primarily used by the recursion stack. The maximum depth of the recursion is the number of empty cells, which in the worst-case can be up to 81.
