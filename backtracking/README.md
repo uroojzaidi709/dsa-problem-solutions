@@ -16,14 +16,17 @@ If all queens have been successfully placed (i.e., row equals n), a valid soluti
 ### Recursive Step: 
 For the current row, we iterate through each column (col). For each (row, col) position, we check if it's safe to place a queen there using the isSafe() helper function.
 
-###Safety Check (isSafe): 
+### Safety Check (isSafe): 
 The isSafe() function verifies three conditions to ensure no other queen can attack the current position:
 
-### Vertical Check: It looks for any queens in the same column in previous rows.
+### Vertical Check: 
+It looks for any queens in the same column in previous rows.
 
-### Diagonal Up-Left Check: It checks the upper-left diagonal.
+### Diagonal Up-Left Check: 
+It checks the upper-left diagonal.
 
-### Diagonal Up-Right Check: It checks the upper-right diagonal.
+### Diagonal Up-Right Check: 
+It checks the upper-right diagonal.
 
 ### Placement and Backtracking:
 If a position is safe, we place a queen **(board[row][col] = true)** and make a recursive call for the next row (row + 1). After the recursive call returns (either because a solution was found or a dead end was reached), we backtrack by removing the queen **(board[row][col] = false)**. This allows the loop to try the next column in the current row.
