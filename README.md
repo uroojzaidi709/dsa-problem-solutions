@@ -119,6 +119,7 @@ Space Complexity: O(1) - The solution is in-place and doesn't use extra space.
 287. Find the Duplicate Number
      
 Problem Overview:
+
 This problem asks us to find the single repeated number in an array of n + 1 integers, where each integer is in the range [1, n].
 
 Solution Approach (Cyclic Sort):
