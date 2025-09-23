@@ -40,3 +40,32 @@ The time complexity is roughly O(n!) because in the worst-case scenario, the alg
 
 ### Space Complexity: O(n²)
 The space complexity is determined by the size of the board (n*n) and the recursion depth, which is n.
+
+
+# 52. N-Queens II
+
+## Problem Overview:
+
+This problem is a variation of the N-Queens puzzle. Instead of returning all distinct board configurations, the goal is to return only the total number of distinct solutions. The rules for placing queens remain the same: no two queens can share the same row, column, or diagonal.
+
+## Solution Approach (Backtracking):
+
+The solution uses the same backtracking core as the N-Queens problem. The main difference lies in how the base case is handled and how results are aggregated.
+
+### Recursive Function (countQueens): A recursive function is used to explore all possible placements. Instead of building a list of board configurations, it returns an integer count.
+
+### Base Case: When a queen has been successfully placed in the final row (row == board.length), it signifies a complete and valid solution. Instead of adding a board to a list, the function returns 1, which represents a single, valid solution found.
+
+### Recursive Step & Aggregation: The function iterates through each column in the current row. If a position is safe, it places a queen, recursively calls itself for the next row, and adds the returned count to a running total. After the recursive call, it backtracks by removing the queen to explore other possibilities.
+
+### Final Count: The initial call to the recursive function returns the sum of all valid solutions found, providing the final answer.
+
+This approach is highly efficient for counting solutions, as it avoids the overhead of generating and storing the board configurations for each valid solution.
+
+## Complexity:
+
+### Time Complexity: O(n!)
+Similar to the original N-Queens problem, the algorithm explores all permutations of placing n queens.
+
+### Space Complexity: O(n²)
+The space is primarily used for the recursion stack and the boolean board.
